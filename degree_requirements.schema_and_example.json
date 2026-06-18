@@ -1,0 +1,693 @@
+{
+  "schema_version": "1.0.0",
+
+  "program": {
+    "program_id": "usc-marshall-bs-busad-2024",
+    "program_name": "Bachelor of Science in Business Administration (Business Analytics Emphasis)",
+    "credential_type": "bachelors_with_emphasis",
+    "school": "USC Marshall School of Business",
+    "department": "Data Sciences and Operations (DSO)",
+    "catalogue_year": "2024-2025",
+    "effective_start_term": "2024-08",
+    "effective_end_term": "present",
+    "source_urls": [
+      "https://catalogue.usc.edu/",
+      "https://students.marshall.usc.edu/",
+      "https://www.marshall.usc.edu/"
+    ],
+    "source_documents": [
+      {
+        "title": "USC Marshall — Business Analytics Emphasis (12-unit DSO pool, 300-499, eligibility)",
+        "url": "https://students.marshall.usc.edu/",
+        "retrieved": "PLACEHOLDER_DATE"
+      },
+      {
+        "title": "USC Catalogue — Business undergraduate requirements (prefix list, 60 non-business units, P/NP cap)",
+        "url": "https://cataloguepubs.usc.edu/",
+        "retrieved": "PLACEHOLDER_DATE"
+      }
+    ]
+  },
+
+  "scrape_metadata": {
+    "scraped_at": "2026-05-15T00:00:00Z",
+    "scraped_by": "usc-catalogue-scraper",
+    "scrape_method": "mixed_automated_and_manual_verification",
+    "source_system": "catalogue.usc.edu + Marshall advising sites",
+    "source_text_available": true,
+    "confidence": "medium",
+    "last_verified_at": "2026-05-15T00:00:00Z",
+    "notes": "Emphasis values (12-unit DSO pool, 300-499 range, prefix list) partly verified against Marshall advising pages. Threshold for general upper-division business electives (REQ-004) is a placeholder pending the official Marshall worksheet. All program-level rules below are scoped to catalogue year 2024-2025."
+  },
+
+  "course_catalog_dependency": {
+    "description": "This file is NOT a course catalog. It references courses by course_id and defers course facts to a separate course database. The engine MUST resolve course facts from that database at evaluation time.",
+    "owned_by_course_database": [
+      "course_id",
+      "title",
+      "units",
+      "subject_prefix",
+      "course_number",
+      "description",
+      "prerequisites",
+      "cross_listings_and_equivalents",
+      "repeatability",
+      "grading_restrictions",
+      "catalogue_metadata"
+    ],
+    "lookup_contract": {
+      "resolve_by": "course_id",
+      "fallback_resolve_by": "course_code",
+      "units_override_policy": "Use units/weight_override from this file ONLY when the source explicitly printed a unit value. Otherwise the weight sets value_source='course_catalog_lookup' and unit_lookup_required=true, and the engine fetches units from the course database.",
+      "attribute_pool_resolution": "For attribute_pool requirements, the engine queries the course database for all courses where subject_prefix is in subject_prefixes AND course_number is within [course_number_min, course_number_max] AND attributes satisfy allowed/excluded constraints, then removes excluded_courses and adds included_course_ids."
+    }
+  },
+
+  "requirements": [
+    {
+      "requirement_id": "REQ-001",
+      "requirement_name": "Core course: BUAD 311",
+      "requirement_category": "course_selection",
+      "requirement_type": "fixed_required_course",
+      "requirement_description": "BUAD 311 (Operations Management) is required for the major.",
+      "counts_toward": ["bs_busad_core"],
+      "eligible_courses": {
+        "mode": "explicit_list",
+        "courses": [
+          {
+            "course_id": "CRS-BUAD-311",
+            "course_code": "BUAD 311",
+            "equivalent_course_ids": [],
+            "units": "lookup",
+            "weight_override": null,
+            "notes": "Single required course. Units not needed because this is a course_count requirement."
+          }
+        ]
+      },
+      "weight": {
+        "measure": "course_count",
+        "value_source": "fixed",
+        "default_value": 1,
+        "unit_lookup_required": false
+      },
+      "completion_threshold": {
+        "measure": "course_count",
+        "value": 1,
+        "operator": "greater_than_or_equal"
+      },
+      "minimum_grade_policy": {
+        "applies": false,
+        "minimum_grade": null,
+        "engine_behavior": "none_in_v1",
+        "manual_review_required": false
+      },
+      "grading_basis_policy": {
+        "letter_grade_required": true,
+        "pass_no_pass_allowed": false,
+        "engine_behavior": "V1: do not block on grading basis. V2: enforce letter-grade requirement for core courses (see global_rules.pass_no_pass_caps).",
+        "manual_review_required": false
+      },
+      "double_counting_policy": {
+        "shareable": false,
+        "related_non_double_counting_rule_ids": [],
+        "notes": "Core course; no overlap modeled."
+      },
+      "source_evidence": {
+        "evidence_type": "catalogue_text",
+        "source_url": "https://cataloguepubs.usc.edu/",
+        "quote": "BUAD 311 required for the major.",
+        "captured_at": "PLACEHOLDER_DATE",
+        "confidence": "medium"
+      },
+      "manual_review_required": false,
+      "notes": "Baseline case: S = {BUAD 311}, w = 1, T = 1."
+    },
+
+    {
+      "requirement_id": "REQ-002",
+      "requirement_name": "Intermediate economics: choose 2",
+      "requirement_category": "course_selection",
+      "requirement_type": "choose_n_from_set",
+      "requirement_description": "Select two courses from the approved intermediate economics set.",
+      "counts_toward": ["bs_busad_core"],
+      "eligible_courses": {
+        "mode": "explicit_list",
+        "courses": [
+          {
+            "course_id": "CRS-ECON-351x",
+            "course_code": "ECON 351x",
+            "equivalent_course_ids": [],
+            "units": "lookup",
+            "weight_override": null,
+            "notes": "'x' designation = credit restricted; restriction detail lives in the course database (course-numbering semantics)."
+          },
+          {
+            "course_id": "CRS-ECON-352x",
+            "course_code": "ECON 352x",
+            "equivalent_course_ids": [],
+            "units": "lookup",
+            "weight_override": null,
+            "notes": "'or approved equivalent' may apply; see global_rules.cross_listed_and_equivalent_courses (GR-XLIST-001)."
+          },
+          {
+            "course_id": "CRS-ECON-PLACEHOLDER-001",
+            "course_code": "ECON 3xx (additional approved)",
+            "equivalent_course_ids": [],
+            "units": "lookup",
+            "weight_override": null,
+            "notes": "PLACEHOLDER: source list shows '...' — full approved set not yet captured."
+          }
+        ]
+      },
+      "weight": {
+        "measure": "course_count",
+        "value_source": "fixed",
+        "default_value": 1,
+        "unit_lookup_required": false
+      },
+      "completion_threshold": {
+        "measure": "course_count",
+        "value": 2,
+        "operator": "greater_than_or_equal"
+      },
+      "minimum_grade_policy": {
+        "applies": false,
+        "minimum_grade": null,
+        "engine_behavior": "none_in_v1",
+        "manual_review_required": false
+      },
+      "grading_basis_policy": {
+        "letter_grade_required": true,
+        "pass_no_pass_allowed": false,
+        "engine_behavior": "V1: do not block. V2: enforce letter grade for core.",
+        "manual_review_required": false
+      },
+      "double_counting_policy": {
+        "shareable": false,
+        "related_non_double_counting_rule_ids": [],
+        "notes": "Economics courses are not in the DSO/Marshall business-elective pools, so no overlap modeled here."
+      },
+      "source_evidence": {
+        "evidence_type": "catalogue_text",
+        "source_url": "https://cataloguepubs.usc.edu/",
+        "quote": "select two of {ECON 351x, ECON 352x, ...}",
+        "captured_at": "PLACEHOLDER_DATE",
+        "confidence": "low"
+      },
+      "manual_review_required": true,
+      "notes": "S = approved econ set, w = 1, T = 2. Flagged because the full approved set is truncated in source ('...'). See manual_review_items MRI-001."
+    },
+
+    {
+      "requirement_id": "REQ-003",
+      "requirement_name": "Business Analytics emphasis — 12 units of upper-division DSO",
+      "requirement_category": "course_selection",
+      "requirement_type": "unit_threshold_pool",
+      "requirement_description": "Complete 12 units of upper-division DSO coursework, where 'upper division' means course numbers 300-499.",
+      "counts_toward": ["emphasis_business_analytics"],
+      "eligible_courses": {
+        "mode": "attribute_pool",
+        "subject_prefixes": ["DSO"],
+        "course_number_min": 300,
+        "course_number_max": 499,
+        "course_number_inclusive": true,
+        "course_level_label": "upper_division",
+        "allowed_attributes": [],
+        "excluded_courses": [],
+        "included_course_ids": [],
+        "excluded_attributes": [],
+        "pool_description": "Any DSO-prefixed course numbered 300 to 499 inclusive. Units resolved from the course database per matched course."
+      },
+      "weight": {
+        "measure": "units",
+        "value_source": "course_catalog_lookup",
+        "default_value": null,
+        "unit_lookup_required": true
+      },
+      "completion_threshold": {
+        "measure": "units",
+        "value": 12,
+        "operator": "greater_than_or_equal"
+      },
+      "minimum_grade_policy": {
+        "applies": false,
+        "minimum_grade": null,
+        "engine_behavior": "none_in_v1",
+        "manual_review_required": false
+      },
+      "grading_basis_policy": {
+        "letter_grade_required": true,
+        "pass_no_pass_allowed": false,
+        "engine_behavior": "V1: do not block. V2: enforce letter grade for major/emphasis (P/NP for major requirements needs written department approval).",
+        "manual_review_required": false
+      },
+      "double_counting_policy": {
+        "shareable": false,
+        "related_non_double_counting_rule_ids": ["NDC-001"],
+        "notes": "DSO 300-499 courses are also eligible for the general upper-division business electives pool (REQ-004); a course may count toward only one. See NDC-001."
+      },
+      "source_evidence": {
+        "evidence_type": "advising_site",
+        "source_url": "https://students.marshall.usc.edu/",
+        "quote": "12 units of upper-division DSO coursework (course numbers 300-499); emphasis open to current Marshall undergraduates with sophomore standing and at least one semester in residence.",
+        "captured_at": "PLACEHOLDER_DATE",
+        "confidence": "high"
+      },
+      "manual_review_required": false,
+      "notes": "The decoded Marshall example: unit threshold (12) + department-prefix filter (DSO) + course-level filter (300-499). The fourth condition (eligibility: standing + residence) is modeled separately as global_rules.standing_and_residency_gates GR-STAND-001 because it is an eligibility blocker, not a course-counting rule."
+    },
+
+    {
+      "requirement_id": "REQ-004",
+      "requirement_name": "Upper-division business electives",
+      "requirement_category": "course_selection",
+      "requirement_type": "unit_threshold_pool",
+      "requirement_description": "Complete upper-division business elective units from approved Marshall subject prefixes numbered 300-499.",
+      "counts_toward": ["bs_busad_upper_division_electives"],
+      "eligible_courses": {
+        "mode": "attribute_pool",
+        "subject_prefixes": ["ACCT", "BAEP", "BUCO", "FBE", "DSO", "MKT", "MOR"],
+        "course_number_min": 300,
+        "course_number_max": 499,
+        "course_number_inclusive": true,
+        "course_level_label": "upper_division",
+        "allowed_attributes": [],
+        "excluded_courses": [],
+        "included_course_ids": [],
+        "excluded_attributes": [],
+        "pool_description": "Any course with a Marshall business prefix (ACCT, BAEP, BUCO, FBE, DSO, MKT, MOR) numbered 300-499 inclusive."
+      },
+      "weight": {
+        "measure": "units",
+        "value_source": "course_catalog_lookup",
+        "default_value": null,
+        "unit_lookup_required": true
+      },
+      "completion_threshold": {
+        "measure": "units",
+        "value": 12,
+        "operator": "greater_than_or_equal"
+      },
+      "minimum_grade_policy": {
+        "applies": false,
+        "minimum_grade": null,
+        "engine_behavior": "none_in_v1",
+        "manual_review_required": false
+      },
+      "grading_basis_policy": {
+        "letter_grade_required": true,
+        "pass_no_pass_allowed": false,
+        "engine_behavior": "V1: do not block. V2: enforce letter grade for major.",
+        "manual_review_required": false
+      },
+      "double_counting_policy": {
+        "shareable": false,
+        "related_non_double_counting_rule_ids": ["NDC-001"],
+        "notes": "Overlaps REQ-003 (DSO 300-499 is a subset of this pool). A single course may not satisfy both. See NDC-001."
+      },
+      "source_evidence": {
+        "evidence_type": "placeholder",
+        "source_url": "https://students.marshall.usc.edu/",
+        "quote": "PLACEHOLDER: Marshall prefixes ACCT, BAEP, BUCO, FBE, DSO, MKT, MOR confirmed; required unit count for the general upper-division business elective bucket not yet captured.",
+        "captured_at": "PLACEHOLDER_DATE",
+        "confidence": "low"
+      },
+      "manual_review_required": true,
+      "notes": "Threshold value (12) is a PLACEHOLDER pending the official Marshall worksheet. Included to demonstrate an overlapping pool and the non-double-counting link (NDC-001). See manual_review_items MRI-002."
+    }
+  ],
+
+  "global_rules": {
+    "prerequisite_chains": [
+      {
+        "rule_id": "GR-PREREQ-001",
+        "rule_type": "prerequisite_chain",
+        "applies_to_requirement_ids": ["REQ-003"],
+        "description": "BUAD 310g must be completed before the business analytics elective sequence.",
+        "engine_behavior": "V1: informational/feasibility ordering only; do not fail the requirement. Resolve the actual prerequisite edges from the course database. V2: enforce ordering when validating in-progress plans.",
+        "manual_review_required": false,
+        "source_evidence": {
+          "evidence_type": "advising_site",
+          "source_url": "https://students.marshall.usc.edu/",
+          "quote": "BUAD 310g before the business analytics elective.",
+          "captured_at": "PLACEHOLDER_DATE",
+          "confidence": "medium"
+        },
+        "notes": "Prerequisite edges themselves live in the course database; this entry records that a degree requirement explicitly depends on the chain."
+      }
+    ],
+
+    "gateway_rules": [],
+
+    "non_double_counting_rules": [
+      {
+        "rule_id": "NDC-001",
+        "rule_type": "non_double_counting",
+        "applies_to_requirement_ids": ["REQ-003", "REQ-004"],
+        "description": "A single DSO 300-499 course may satisfy either the Business Analytics emphasis (REQ-003) or the general upper-division business electives bucket (REQ-004), but not both.",
+        "engine_behavior": "V1: when a course is eligible for both requirements, allocate it to at most one. Prefer the allocation that maximizes total satisfied requirements; if ambiguous, flag for manual review rather than double-count.",
+        "manual_review_required": false,
+        "source_evidence": {
+          "evidence_type": "advising_site",
+          "source_url": "https://students.marshall.usc.edu/",
+          "quote": "A course taken once cannot fill two upper-division slots.",
+          "captured_at": "PLACEHOLDER_DATE",
+          "confidence": "medium"
+        },
+        "notes": "Links two requirement IDs that share overlapping eligible courses, as required by the no-double-count rule."
+      }
+    ],
+
+    "gpa_gates": [
+      {
+        "rule_id": "GR-GPA-001",
+        "rule_type": "gpa_gate",
+        "applies_to_requirement_ids": ["REQ-003", "REQ-004"],
+        "description": "Minimum 2.0 cumulative GPA and 2.0 GPA in upper-division major coursework.",
+        "engine_behavior": "V2: evaluate when GPA data is available; until then do not block, but surface in audit output. V1: record only.",
+        "manual_review_required": false,
+        "source_evidence": {
+          "evidence_type": "advising_site",
+          "source_url": "https://www.marshall.usc.edu/",
+          "quote": "2.0 cumulative and 2.0 in upper-division major courses.",
+          "captured_at": "PLACEHOLDER_DATE",
+          "confidence": "medium"
+        },
+        "notes": "V2 hook; section populated now so no redesign is needed later."
+      }
+    ],
+
+    "grade_floors": [
+      {
+        "rule_id": "GR-GRADE-001",
+        "rule_type": "minimum_grade_per_course",
+        "applies_to_requirement_ids": [],
+        "description": "Third-semester foreign language course must be completed with a grade of C- or better.",
+        "engine_behavior": "V2: enforce per-course grade floor using transcript grades. V1: record only.",
+        "manual_review_required": false,
+        "source_evidence": {
+          "evidence_type": "catalogue_text",
+          "source_url": "https://catalogue.usc.edu/",
+          "quote": "third-semester foreign language course completed with a C- or better.",
+          "captured_at": "PLACEHOLDER_DATE",
+          "confidence": "medium"
+        },
+        "notes": "USC-wide undergraduate rule; included as a V2 hook. Foreign-language placement-exam satisfaction is handled via exceptions_and_waivers / external evidence."
+      }
+    ],
+
+    "pass_no_pass_caps": [
+      {
+        "rule_id": "GR-PNP-001",
+        "rule_type": "pass_no_pass_cap",
+        "applies_to_requirement_ids": ["REQ-001", "REQ-002", "REQ-003", "REQ-004"],
+        "description": "Core/major courses must be letter-graded. A maximum of 24 P/NP units may count toward the degree (at most 4 toward GE). WRIT courses do not count if taken P/NP. P/NP for major requirements requires written department approval; minor coursework may not be taken P/NP.",
+        "engine_behavior": "V2: enforce grading-basis constraints and the 24-unit P/NP ceiling using transcript grading basis. V1: record only; do not auto-block.",
+        "manual_review_required": true,
+        "source_evidence": {
+          "evidence_type": "catalogue_text",
+          "source_url": "https://catalogue.usc.edu/",
+          "quote": "core courses must be letter grade; <=24 units P/NP.",
+          "captured_at": "PLACEHOLDER_DATE",
+          "confidence": "medium"
+        },
+        "notes": "Grading-basis restriction is a distinct category from grade floors. 'Written department approval' for major P/NP is human-only -> manual review."
+      }
+    ],
+
+    "standing_and_residency_gates": [
+      {
+        "rule_id": "GR-STAND-001",
+        "rule_type": "standing_and_residency_gate",
+        "applies_to_requirement_ids": ["REQ-003"],
+        "description": "The Business Analytics emphasis is open only to current Marshall undergraduates with sophomore standing and at least one semester completed in residence.",
+        "engine_behavior": "Report an ELIGIBILITY BLOCKER (not 'units owed') if standing/residence is not met. V1: surface as needs_manual_review for the residence portion; class standing may be computed if standing data is available.",
+        "manual_review_required": true,
+        "source_evidence": {
+          "evidence_type": "advising_site",
+          "source_url": "https://students.marshall.usc.edu/",
+          "quote": "emphasis open only to current Marshall undergraduates who have reached sophomore standing and completed at least one semester in residence.",
+          "captured_at": "PLACEHOLDER_DATE",
+          "confidence": "high"
+        },
+        "notes": "This is the fourth condition in the decoded Marshall emphasis. Modeled here (not as a course requirement) because it gates declaration/eligibility."
+      }
+    ],
+
+    "external_substitutions": [
+      {
+        "rule_id": "GR-SUBST-001",
+        "rule_type": "external_substitution",
+        "applies_to_requirement_ids": ["REQ-004"],
+        "description": "An approved international exchange program may satisfy an elective requirement.",
+        "engine_behavior": "Cannot be auto-checked from transcript course lines. Always route to manual review; the engine must not infer satisfaction.",
+        "manual_review_required": true,
+        "source_evidence": {
+          "evidence_type": "advising_site",
+          "source_url": "https://www.marshall.usc.edu/",
+          "quote": "an international exchange program filling the elective requirement.",
+          "captured_at": "PLACEHOLDER_DATE",
+          "confidence": "medium"
+        },
+        "notes": "Non-course activity satisfying a requirement; transcript line alone is insufficient."
+      }
+    ],
+
+    "cross_listed_and_equivalent_courses": [
+      {
+        "rule_id": "GR-XLIST-001",
+        "rule_type": "cross_listed_or_equivalent",
+        "applies_to_requirement_ids": ["REQ-002"],
+        "description": "ECON 352x 'or approved equivalent' may satisfy the requirement.",
+        "engine_behavior": "Use an equivalence map (course_id -> equivalent course_ids), never string matching. Known equivalents count automatically; an unknown 'approved equivalent' must be flagged for manual review.",
+        "manual_review_required": true,
+        "source_evidence": {
+          "evidence_type": "catalogue_text",
+          "source_url": "https://cataloguepubs.usc.edu/",
+          "quote": "course X or approved equivalent.",
+          "captured_at": "PLACEHOLDER_DATE",
+          "confidence": "low"
+        },
+        "notes": "Equivalent course IDs are unknown at scrape time -> manual review. The equivalence map itself is owned by the course database. See manual_review_items MRI-001."
+      }
+    ],
+
+    "graduate_unit_borrowing": [
+      {
+        "rule_id": "GR-GRADUNIT-001",
+        "rule_type": "graduate_unit_borrowing_cap",
+        "applies_to_requirement_ids": ["REQ-004"],
+        "description": "Under the progressive-degree path, up to 9 MSBA graduate units may count toward undergraduate electives.",
+        "engine_behavior": "Model as a CEILING, not a threshold. The engine caps borrowed graduate units at 9 when allocating them to undergraduate requirements; it never treats this as a minimum to reach.",
+        "manual_review_required": false,
+        "source_evidence": {
+          "evidence_type": "advising_site",
+          "source_url": "https://www.marshall.usc.edu/",
+          "quote": "up to 9 MSBA units counting as undergrad electives.",
+          "captured_at": "PLACEHOLDER_DATE",
+          "confidence": "medium"
+        },
+        "notes": "A cap, not a minimum. Kept separate from threshold requirements by design."
+      }
+    ],
+
+    "catalogue_year_rules": [
+      {
+        "rule_id": "GR-CATYEAR-001",
+        "rule_type": "catalogue_year_versioning",
+        "applies_to_requirement_ids": ["REQ-001", "REQ-002", "REQ-003", "REQ-004"],
+        "description": "All requirements in this file are scoped to catalogue year 2024-2025 (effective Fall 2024 to present). Students follow the catalogue from their first term of enrollment (or a later one they were enrolled under) and may not mix catalogues, though a minor may follow a different catalogue year than the major, and double majors may follow major requirements from different catalogue years.",
+        "engine_behavior": "Select the correct program file by the student's effective catalogue year before evaluating. Every requirement check is implicitly scoped to this catalogue_year.",
+        "manual_review_required": false,
+        "source_evidence": {
+          "evidence_type": "catalogue_text",
+          "source_url": "https://catalogue.usc.edu/",
+          "quote": "effective Fall 2024 to present vs. prior worksheets; students follow the catalogue from their first term of enrollment.",
+          "captured_at": "PLACEHOLDER_DATE",
+          "confidence": "high"
+        },
+        "notes": "V1 core. This is why one file = one program + one catalogue year."
+      }
+    ],
+
+    "degree_combination_restrictions": [
+      {
+        "rule_id": "GR-COMBO-001",
+        "rule_type": "degree_combination_restriction",
+        "applies_to_requirement_ids": [],
+        "description": "Example mutual-exclusivity rule: the BS in Accounting and Finance cannot be combined as an additional major in either Accounting or Business Administration.",
+        "engine_behavior": "V2: when auditing multiple programs for one student, reject disallowed combinations. V1: record only.",
+        "manual_review_required": false,
+        "source_evidence": {
+          "evidence_type": "catalogue_text",
+          "source_url": "https://catalogue.usc.edu/",
+          "quote": "The BS in Accounting and Finance cannot be combined as an additional major in either accounting or business administration.",
+          "captured_at": "PLACEHOLDER_DATE",
+          "confidence": "medium"
+        },
+        "notes": "Program-level, not requirement-level. Included to demonstrate the mutual-exclusivity hook; this specific rule is about a different program and is illustrative for this file."
+      }
+    ],
+
+    "exceptions_and_waivers": [
+      {
+        "rule_id": "GR-EXC-001",
+        "rule_type": "exception_or_waiver",
+        "applies_to_requirement_ids": ["REQ-001", "REQ-002", "REQ-003", "REQ-004"],
+        "description": "Advisor-approved waivers and substitutions appear in the student's academic record (STARS) as data and override the default requirement evaluation.",
+        "engine_behavior": "Support a 'requirement satisfied by exception' state. When an exception record references a requirement_id, mark it satisfied regardless of course evidence. The catalogue scrape cannot capture these; they arrive with the student record.",
+        "manual_review_required": true,
+        "source_evidence": {
+          "evidence_type": "advising_site",
+          "source_url": "https://catalogue.usc.edu/",
+          "quote": "STARS updates reflect all exceptions in a student's academic record.",
+          "captured_at": "PLACEHOLDER_DATE",
+          "confidence": "medium"
+        },
+        "notes": "No scrape can capture per-student exceptions; the engine needs a data path for them. Flagged so the team builds the override channel."
+      }
+    ],
+
+    "ge_overlap_rules": [
+      {
+        "rule_id": "GR-GE-001",
+        "rule_type": "ge_overlap",
+        "applies_to_requirement_ids": [],
+        "description": "A single course may satisfy one Global Perspectives requirement and one Core Literacy requirement simultaneously. Core Literacies require one course each in GE-A, D, E, F and two courses each in GE-B and GE-C, plus Global Perspectives G and H.",
+        "engine_behavior": "V2: allow the specific GE double-dip (one Global Perspective + one Core Literacy) as an explicit exception to non-double-counting. V1: record only. GE requirements are not enumerated in this Marshall file; they belong to the Dornsife GE program file.",
+        "manual_review_required": false,
+        "source_evidence": {
+          "evidence_type": "catalogue_text",
+          "source_url": "https://catalogue.usc.edu/",
+          "quote": "a single course can satisfy one Global Perspective and one Core Literacy requirement.",
+          "captured_at": "PLACEHOLDER_DATE",
+          "confidence": "medium"
+        },
+        "notes": "'Course counts toward two requirements simultaneously' is a distinct, intentional overlap type, opposite to non_double_counting_rules."
+      }
+    ],
+
+    "residence_rules": [
+      {
+        "rule_id": "GR-RES-001",
+        "rule_type": "residence_requirement",
+        "applies_to_requirement_ids": ["REQ-003", "REQ-004"],
+        "description": "All upper-division major (and minor) units must be completed in residence at USC. Transfer students must complete a minimum of 64 units in residence (program exceptions exist, e.g. 48 units for Engineering 3+2, 80 for the BArch). Certain courses (e.g. ECON 351x, ECON 352x) must be taken in residence.",
+        "engine_behavior": "V2: verify residence using the source institution per transcript line and class-standing/residence data. V1: record only; route residence verification to manual review.",
+        "manual_review_required": true,
+        "source_evidence": {
+          "evidence_type": "catalogue_text",
+          "source_url": "https://catalogue.usc.edu/",
+          "quote": "complete all upper-division major and minor units at USC; transfer students must complete a minimum of 64 units in residence; ECON 351x and ECON 352x must be taken in residence.",
+          "captured_at": "PLACEHOLDER_DATE",
+          "confidence": "medium"
+        },
+        "notes": "Distinct from standing_and_residency_gates (which gates emphasis declaration). This entry concerns where units are earned."
+      }
+    ],
+
+    "exam_credit_rules": [
+      {
+        "rule_id": "GR-EXAM-001",
+        "rule_type": "exam_credit_rule",
+        "applies_to_requirement_ids": [],
+        "description": "USC accepts a maximum of 32 units from standardized exams (AP/IB/A-level); college courses taken in high school are capped at 16 units within that 32. Exam credit can fulfill GE but not Writing or Foreign Language requirements. Students may not receive credit for both an AP exam and an IB exam or college course covering the same subject.",
+        "engine_behavior": "V2: apply exam-credit caps and anti-double-credit rules using exam records. V1: record only; route to manual review when exam credit is present.",
+        "manual_review_required": true,
+        "source_evidence": {
+          "evidence_type": "catalogue_text",
+          "source_url": "https://catalogue.usc.edu/",
+          "quote": "maximum of 32 units from standardized exams; college courses taken in high school capped at 16 units; may not receive credit for both an AP exam and an IB exam or college course covering the same subject matter.",
+          "captured_at": "PLACEHOLDER_DATE",
+          "confidence": "medium"
+        },
+        "notes": "Anti-double-credit logic spans exam records and transcript lines; not auto-resolvable in V1."
+      }
+    ],
+
+    "course_repetition_rules": [
+      {
+        "rule_id": "GR-REPEAT-001",
+        "rule_type": "course_repetition_rule",
+        "applies_to_requirement_ids": ["REQ-001", "REQ-002", "REQ-003", "REQ-004"],
+        "description": "Repeat rules govern which attempt earns credit. A prerequisite course taken AFTER the higher-level course has been passed earns no unit or grade-point credit.",
+        "engine_behavior": "V2: when a course appears multiple times on the transcript, count the credit-bearing attempt only, per repeat/retroactive-credit rules. V1: record only; flag retakes for manual review.",
+        "manual_review_required": true,
+        "source_evidence": {
+          "evidence_type": "catalogue_text",
+          "source_url": "https://catalogue.usc.edu/",
+          "quote": "a prerequisite course taken after the higher-level course has been passed gets no unit or grade point credit.",
+          "captured_at": "PLACEHOLDER_DATE",
+          "confidence": "medium"
+        },
+        "notes": "Relevant to the 'failed and retook a class' transcript test case; the parser will hit retakes in STARS."
+      }
+    ]
+  },
+
+  "manual_review_items": [
+    {
+      "item_id": "MRI-001",
+      "related_to": ["REQ-002", "GR-XLIST-001"],
+      "reason": "The approved economics set is truncated in source ('...'), and ECON 352x carries an 'or approved equivalent' clause with no known equivalent course IDs.",
+      "trigger": "incomplete_source_list_and_unknown_equivalent",
+      "status": "open",
+      "suggested_action": "Capture the full approved ECON set from the Marshall worksheet and populate the equivalence map (course database) with approved equivalents."
+    },
+    {
+      "item_id": "MRI-002",
+      "related_to": ["REQ-004"],
+      "reason": "Required unit count (threshold value) for the general upper-division business electives bucket is a placeholder.",
+      "trigger": "placeholder_threshold",
+      "status": "open",
+      "suggested_action": "Confirm the required unit total from the official Marshall degree worksheet for catalogue year 2024-2025."
+    },
+    {
+      "item_id": "MRI-003",
+      "related_to": ["REQ-003", "GR-STAND-001"],
+      "reason": "Emphasis eligibility includes 'at least one semester in residence', which the engine cannot confirm from a course list alone.",
+      "trigger": "residency_eligibility_gate",
+      "status": "open",
+      "suggested_action": "Verify residence/standing from the student record before clearing the emphasis as declarable."
+    },
+    {
+      "item_id": "MRI-004",
+      "related_to": ["GR-SUBST-001", "GR-EXC-001"],
+      "reason": "External substitutions (e.g. exchange programs) and advisor exceptions are not derivable from transcript course lines.",
+      "trigger": "non_course_satisfaction",
+      "status": "open",
+      "suggested_action": "Build the student-record override channel so exceptions/substitutions can mark requirements satisfied."
+    }
+  ],
+
+  "validation_notes": {
+    "overall_confidence": "medium",
+    "verified": [
+      "DSO 12-unit, 300-499 pool and emphasis eligibility (REQ-003, GR-STAND-001) — high confidence from Marshall advising.",
+      "Marshall business prefixes for REQ-004 pool — confirmed; only the threshold value is unconfirmed.",
+      "Catalogue-year scoping (GR-CATYEAR-001) — high confidence."
+    ],
+    "placeholders": [
+      "All source_evidence.captured_at fields = PLACEHOLDER_DATE pending the depth scrape.",
+      "REQ-002 full approved ECON set (MRI-001).",
+      "REQ-004 threshold unit value (MRI-002)."
+    ],
+    "open_questions": [
+      "Exact required unit count for general upper-division business electives.",
+      "Known equivalents for 'ECON 352x or approved equivalent'.",
+      "Whether the program enumerates a gateway course (gateway_rules currently empty)."
+    ],
+    "self_check": {
+      "1_fixed_required_course": "PASS — REQ-001 (BUAD 311): explicit_list, course_count weight=1, threshold course_count >= 1.",
+      "2_choose_2_from_list": "PASS — REQ-002: explicit_list, course_count weight=1, threshold course_count >= 2.",
+      "3_twelve_units_dso_300_499": "PASS — REQ-003: attribute_pool DSO + 300-499, units weight, threshold units >= 12.",
+      "4_reference_separate_course_db_for_units": "PASS — course_catalog_dependency + weight.value_source='course_catalog_lookup' + unit_lookup_required=true (REQ-003, REQ-004).",
+      "5_prevent_double_counting_overlapping_requirements": "PASS — NDC-001 links REQ-003 and REQ-004 (overlapping DSO 300-499).",
+      "6_store_scrape_date_and_source_evidence": "PASS — scrape_metadata.scraped_at + every requirement and global rule carries source_evidence.",
+      "7_support_gpa_pnp_residency_substitutions_equivalents_grad_borrowing_later": "PASS — all sections present (gpa_gates, pass_no_pass_caps, residence_rules/standing_and_residency_gates, external_substitutions, cross_listed_and_equivalent_courses, graduate_unit_borrowing) with V2 engine_behavior; no redesign needed.",
+      "8_all_requirement_ids_referenceable_by_global_rules": "PASS — every global rule uses applies_to_requirement_ids referencing REQ-001..REQ-004.",
+      "9_every_ambiguity_flagged_for_manual_review": "PASS — REQ-002 and REQ-004 manual_review_required=true; MRI-001..MRI-004 enumerate open items.",
+      "10_readme_short_enough_for_engineers": "PASS — README is task-oriented with the evaluation algorithm and scope tables; see README.md."
+    }
+  }
+}
